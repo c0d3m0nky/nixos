@@ -2,11 +2,8 @@
 
 {
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # ToDo: Use mkIf to do nothing if berto is not a user
   users.users.berto = {
-    isNormalUser = true;
-    description = "berto";
-    extraGroups = [ "networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = [
         # dev-linux-manjaro
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBR2kcSywuot2jL86VXqDkhcNAarEGHDx/hCHoxo3xgf berto@dev-linux-manjaro"
