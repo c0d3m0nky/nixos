@@ -38,6 +38,26 @@ if $isGood; then
 	plugins+=('autoupdate');
 fi
 
+if $NIX_DEV; then
+	ZSHCOM="$HOME/dev/github/zsh-toolkit"
+	if [[ ! -d "$ZSHCOM" ]]; then
+		mkdir -p "$ZSHCOM";
+		git clone git@github.com:c0d3m0nky/zsh-toolkit.git "$ZSHCOM";
+	fi
+else
+	ZSHCOM="$HOME/.zsh-toolkit"
+	if [[ ! -d "$ZSHCOM" ]]; then
+		git clone https://github.com/c0d3m0nky/zsh-toolkit.git "$ZSHCOM";
+	fi
+fi
+
+# ToDo: Move this zsh-toolkit setup to Home-Manager when setup
+if [[ -f "$ZSHCOM/init.sh" ]]; then
+	if [[ ! "$PATH" =~ "$HOME/.local/bin" ]]; then 
+		export PATH="$PATH:$HOME/.local/bin";
+	fi	
+	source "$ZSHCOM/init.sh"
+fi
 
 alias nixos-rebuild-test='nixos-rebuild test --use-remote-sudo'
 alias nixos-rebuild-switch='nixos-rebuild switch --use-remote-sudo'

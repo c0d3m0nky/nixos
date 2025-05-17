@@ -54,3 +54,11 @@ git config --global --add safe.directory "$HOME/.mynixos"
 git remote set-url "origin" git@github.com:c0d3m0nky/nixos.git
 git pull
 ```
+
+## ToDo
+
+- Home-Manager
+	- Figure out how to change default font in Warp
+	- Move oh-my-zsh setup out of zshrc-helpers.sh
+	- Move zsh-toolkit setup out of zshrc-helpers.sh
+	- openssh.authorizedKeys.keys
