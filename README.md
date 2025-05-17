@@ -3,6 +3,13 @@
 ## Setup
 
 ```bash
+ssh-keygen -t ed25519
+cat "$HOME/.ssh/id_ed25519.pub"
+```
+
+Add key to github
+
+```bash
 sudo git clone git@github.com:c0d3m0nky/nixos.git "$HOME/.mynixos"
 ```
 
