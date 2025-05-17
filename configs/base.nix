@@ -23,7 +23,7 @@
     screen
     rclone
     p7zip
-    perl540Packages.XMLTwig
+    libxml2
 
     python3
     python313Full
