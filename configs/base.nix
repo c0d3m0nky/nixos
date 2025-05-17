@@ -24,6 +24,7 @@
     rclone
     p7zip
     libxml2
+    neofetch
 
     python3
     python313Full
