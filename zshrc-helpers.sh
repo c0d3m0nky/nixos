@@ -6,6 +6,9 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 			cp "$HOME/.mynixos/.zshrc"
 		fi
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		if [[ -f "$HOME/.zshrc.pre-oh-my-zsh" ]]; then
+			mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
+		fi
 	fi
 fi
 
@@ -16,7 +19,7 @@ if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]]; then
 	isGood=$?
 fi
 
-if $isGood; then
+if [[ $isGood ]]; then
 	plugins+=('zsh-autosuggestions');
 fi
 
@@ -25,7 +28,7 @@ if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]]; then
 	isGood=$?
 fi
 
-if $isGood; then
+if [[ $isGood ]]; then
 	plugins+=('zsh-syntax-highlighting');
 fi
 
@@ -34,7 +37,7 @@ if [[ ! -d "$ZSH_CUSTOM/plugins/autoupdate" ]]; then
 	isGood=$?
 fi
 
-if $isGood; then
+if [[ $isGood ]]; then
 	plugins+=('autoupdate');
 fi
 
