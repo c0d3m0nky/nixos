@@ -14,8 +14,8 @@ fi
 
 isGood=0
 
-if [[ ! -d "$ZSH_CUSTOM" ]]; then
-	mkdir -p "$ZSH_CUSTOM";
+if [[ ! -d "$ZSH_CUSTOM/plugins" ]]; then
+	mkdir -p "$ZSH_CUSTOM/plugins";
 fi
 
 if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]]; then
