@@ -65,3 +65,4 @@ fi
 
 alias nixos-rebuild-test='nixos-rebuild test --use-remote-sudo'
 alias nixos-rebuild-switch='nixos-rebuild switch --use-remote-sudo'
+alias nixos-rebuild-upgrade-test='git -C "$HOME/.mynixos" pull && nixos-rebuild test --upgrade --use-remote-sudo'

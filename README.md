@@ -62,3 +62,4 @@ git pull
 	- Move oh-my-zsh setup out of zshrc-helpers.sh
 	- Move zsh-toolkit setup out of zshrc-helpers.sh
 	- openssh.authorizedKeys.keys
+- Get rid of permittedInsecurePackages when sublime4 fixes it's dependencies

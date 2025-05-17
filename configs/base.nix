@@ -13,6 +13,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # ToDo: Get rid of this when sublime4 fixes this
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
+  ];
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
