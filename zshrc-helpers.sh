@@ -14,6 +14,10 @@ fi
 
 isGood=0
 
+if [[ ! -d "$ZSH_CUSTOM" ]]; then
+	mkdir -p "$ZSH_CUSTOM";
+fi
+
 if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]]; then
 	git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 	isGood=$?

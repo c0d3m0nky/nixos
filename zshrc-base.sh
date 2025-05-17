@@ -11,12 +11,14 @@ fi
 plugins=(
 	git
 )
-	
 
-source $ZSH/oh-my-zsh.sh
-source $HOME/.mynixos/zshrc-helpers.sh
+function _source() {
+	[[ ! -f "$1" ]] || source "$1"
+}
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+_source "$HOME/.mynixos/zshrc-helpers.sh"
+_source "$ZSH/oh-my-zsh.sh"
+_source "$HOME/.p10k.zsh"
 
 screensOpen=$(screen -ls | ack -i '^(\d+) sockets? in' --output '$1')
 
