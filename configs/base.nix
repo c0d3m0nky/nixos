@@ -20,8 +20,14 @@
     wget
     curl
     ack
+    screen
+    rclone
+    p7zip
+
     python3
     python313Full
+    pipx
+    
     zsh
     zsh-autosuggestions
     zsh-completions
