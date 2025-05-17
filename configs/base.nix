@@ -2,13 +2,13 @@
 
 {
 
-  # ToDo: Use mkIf to do nothing if berto is not a user
-  users.users.berto = {
-    openssh.authorizedKeys.keys = [
-        # dev-linux-manjaro
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBR2kcSywuot2jL86VXqDkhcNAarEGHDx/hCHoxo3xgf berto@dev-linux-manjaro"
-    ];
-  };
+  # ToDo: Doesn't seem to work, just move it to Home-Manager
+  # users.users.berto = {
+  #   openssh.authorizedKeys.keys = [
+  #       # dev-linux-manjaro
+  #       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBR2kcSywuot2jL86VXqDkhcNAarEGHDx/hCHoxo3xgf berto@dev-linux-manjaro"
+  #   ];
+  # };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
