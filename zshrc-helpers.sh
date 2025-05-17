@@ -46,6 +46,7 @@ if $NIX_DEV; then
 	if [[ ! -d "$ZSHCOM" ]]; then
 		mkdir -p "$ZSHCOM";
 		git clone git@github.com:c0d3m0nky/zsh-toolkit.git "$ZSHCOM";
+		git checkout next
 	fi
 else
 	ZSHCOM="$HOME/.zsh-toolkit"
