@@ -62,4 +62,7 @@ git pull
 	- Move oh-my-zsh setup out of zshrc-helpers.sh
 	- Move zsh-toolkit setup out of zshrc-helpers.sh
 	- openssh.authorizedKeys.keys
+	- git setup
+- Make init script for Ventoy
 - Get rid of permittedInsecurePackages when sublime4 fixes it's dependencies
+- Figure out how to get newer version of Warp Terminal
