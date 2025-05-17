@@ -2,12 +2,17 @@
 
 ## Setup
 
+### Clone repo
 ```bash
 nix-shell -p git
-sudo git clone https://github.com/c0d3m0nky/nixos.git "$HOME/.mynixos"
+git clone https://github.com/c0d3m0nky/nixos.git "$HOME/.mynixos"
 cp $HOME/.mynixos/zshrc-base.sh .zshrc
 ```
 
+### Edit config
+```bash
+sudoedit /etc/nixos/configuration.nix
+```
 ```Nix
 { config, pkgs, ... }:
 
@@ -29,23 +34,23 @@ in
 }
 ```
 
+### Apply (NIXPKGS_ALLOW_INSECURE needed for sublime4)
 ```bash
 export NIXPKGS_ALLOW_INSECURE=1
-# 🠝 Needed for sublime4
 nixos-rebuild switch --use-remote-sudo
 ```
-
 - Change Konsole default to zsh
 
-```bash
+### Change "permissions" on repo
+```zsh
 ssh-keygen -t ed25519
 cat "$HOME/.ssh/id_ed25519.pub"
 ```
-
+- Change KDE Connect name
 - Pass key over KDE Connect and add to github
-
-```bash
+```zsh
 cd "$HOME/.mynixos"
+git config --global --add safe.directory "$HOME/.mynixos"
 git remote set-url "origin" git@github.com:c0d3m0nky/nixos.git
 git pull
 ```
