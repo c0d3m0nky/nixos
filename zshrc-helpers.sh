@@ -1,4 +1,6 @@
 
+sourceOhMyZsh=1
+
 # ToDo: Move this oh-my-zsh setup to Home-Manager when setup
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 	if command -v curl &> /dev/null; then
@@ -6,6 +8,7 @@ if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
 			cp "$HOME/.mynixos/.zshrc"
 		fi
 		sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+		sourceOhMyZsh=0
 		if [[ -f "$HOME/.zshrc.pre-oh-my-zsh" ]]; then
 			mv "$HOME/.zshrc.pre-oh-my-zsh" "$HOME/.zshrc"
 		fi
@@ -21,6 +24,9 @@ fi
 if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]]; then
 	git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 	isGood=$?
+	if [[ $isGood ]]; then
+		sourceOhMyZsh=0
+	fi
 fi
 
 if [[ $isGood ]]; then
@@ -30,6 +36,9 @@ fi
 if [[ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]]; then
 	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 	isGood=$?
+	if [[ $isGood ]]; then
+		sourceOhMyZsh=0
+	fi
 fi
 
 if [[ $isGood ]]; then
@@ -39,6 +48,9 @@ fi
 if [[ ! -d "$ZSH_CUSTOM/plugins/autoupdate" ]]; then
 	git clone https://github.com/TamCore/autoupdate-oh-my-zsh-plugins $ZSH_CUSTOM/plugins/autoupdate
 	isGood=$?
+	if [[ $isGood ]]; then
+		sourceOhMyZsh=0
+	fi
 fi
 
 if [[ $isGood ]]; then
@@ -57,6 +69,10 @@ else
 	if [[ ! -d "$ZSHCOM" ]]; then
 		git clone https://github.com/c0d3m0nky/zsh-toolkit.git "$ZSHCOM";
 	fi
+fi
+
+if [[ $sourceOhMyZsh ]]; then
+	_source "$ZSH/oh-my-zsh.sh"
 fi
 
 # ToDo: Move this zsh-toolkit setup to Home-Manager when setup
