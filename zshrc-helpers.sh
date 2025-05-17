@@ -63,6 +63,22 @@ if [[ -f "$ZSHCOM/init.sh" ]]; then
 	source "$ZSHCOM/init.sh"
 fi
 
+function nixos-checkUpdates() {
+	nix-channel --update;
+	currDir=$(pwd);
+	buildDir="$HOME/.cache/nixos-checkUpdates/build";
+
+	if [[ -d "$buildDir" ]]; then
+		rm -rf "$buildDir";
+	fi
+
+	mkdir -p "$buildDir";
+	cd "$buildDir";
+	nixos-rebuild build;
+	nvd diff /run/current-system "$buildDir/result"
+	cd "$currDir";
+}
+
 alias nixos-rebuild-test='nixos-rebuild test --use-remote-sudo'
 alias nixos-rebuild-switch='nixos-rebuild switch --use-remote-sudo'
 alias nixos-rebuild-upgrade-test='git -C "$HOME/.mynixos" pull && nixos-rebuild test --upgrade --use-remote-sudo'

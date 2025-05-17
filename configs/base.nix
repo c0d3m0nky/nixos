@@ -31,6 +31,7 @@
     p7zip
     libxml2
     neofetch
+    nvd
 
     python3
     python313Full
